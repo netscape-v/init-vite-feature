@@ -8,11 +8,16 @@
   },
   "dependencies": {
     "axios": "^0.25.0",
+    "element-plus": "^2.0.2",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@element-plus/icons-vue": "^0.2.7",
     "@vitejs/plugin-vue": "^2.0.0",
+    "less": "^4.1.2",
+    "unplugin-auto-import": "^0.6.0",
+    "unplugin-vue-components": "^0.17.18",
     "vite": "^2.7.2"
   }
 }
