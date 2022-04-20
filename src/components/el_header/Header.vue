@@ -9,7 +9,12 @@
             :name="item.name"
         >
             <!-- 下拉菜单 -->
-            <el-button type="text">Text Button</el-button>
+            <el-button 
+            v-for="(item, index) in buttons" 
+            :key="index" 
+            :type="item.name"
+            >
+            {{item.name}}</el-button>
         </el-tab-pane>
     </el-tabs>
 </template>
@@ -23,6 +28,13 @@ const gateway = reactive([
     { id: 2, name: "社区" },
     { id: 3, name: "星座" },
     { id: 4, name: "糗事" }
+])
+
+const buttons = reactive([
+    { id: 1, name: "primary" },
+    { id: 1, name: "success" },
+    { id: 1, name: "warning" },
+    { id: 1, name: "danger" }
 ])
 
 const activeName = ref('first')

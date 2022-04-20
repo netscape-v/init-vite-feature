@@ -12,24 +12,15 @@
         </el-col>
     </el-row>
     <!-- 侧边菜单 -->
-    <el-menu default-active="2" class="el-menu-vertical-demo">
-        <el-menu-item index="2">
+    <el-menu default-active="1" class="el-menu-vertical-demo">
+        <el-menu-item v-for="(item, index) in menus" :index="item.id">
             <el-icon>
-                <icon-menu />
+                <compass />
+                <!-- {{item.type}} -->
+                <!-- <div v-html="item.type"></div> -->
+                <!-- <div v-html="'<h1>H</h1>'"></div> -->
             </el-icon>
-            <span>Navigator Two</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-            <el-icon>
-                <icon-menu />
-            </el-icon>
-            <span>Navigator Three</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-            <el-icon>
-                <icon-menu />
-            </el-icon>
-            <span>Navigator four</span>
+            <span>{{ item.name }}</span>
         </el-menu-item>
     </el-menu>
 </template>
@@ -43,6 +34,7 @@ import {
     Document,
     Menu as IconMenu,
     Setting,
+    Compass
 } from '@element-plus/icons-vue'
 
 // 图标地址
@@ -51,13 +43,22 @@ const state = reactive({
         'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
 })
 
+const menus = reactive([
+    { id: '1', name: "文档", type: '<compass />' },
+    { id: '2', name: "电脑", type: '<Location />' },
+    { id: '3', name: "音乐", type: '<Document />' },
+    { id: '4', name: "视频", type: '<Menu />' },
+    { id: '5', name: "系统", type: '<Setting />' },
+])
+
+
 const { circleUrl } = toRefs(state)
 </script>
 
 <style scoped>
 .demo-basic .sub-title {
-    margin-left: 20px;
-    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-bottom: 30px;
     font-size: 20px;
     color: var(--el-text-color-secondary);
 }
@@ -71,10 +72,14 @@ const { circleUrl } = toRefs(state)
     border-right: 1px solid var(--el-border-color-base);
 }
 .demo-basic .block {
-    margin-left: 50px;
+    margin-left: 72px;
     flex: 2;
 }
 .demo-basic .el-col:not(:last-child) {
     border-right: 1px solid var(--el-border-color-base);
+}
+
+.el-row.demo-avatar.demo-basic {
+    background-color: rgb(10, 10, 41);
 }
 </style>
